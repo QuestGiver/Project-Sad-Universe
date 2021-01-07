@@ -2,17 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IShip : MonoBehaviour
+public interface IShip
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    void ShipAttack();
+    void UpdatePosition();
+    void ShipDestroy();
+}
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+public struct ShipBehaviors
+{
+
+}
+
+public struct ShipStats
+{
+    public int HpMax;
+    public int HP;
+
 }
