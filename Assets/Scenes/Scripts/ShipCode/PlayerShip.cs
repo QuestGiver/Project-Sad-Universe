@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseShip : MonoBehaviour, IShip
+public class PlayerShip : MonoBehaviour, IShip
 {
     IShipEquipment ShipAttackBehavior;
 

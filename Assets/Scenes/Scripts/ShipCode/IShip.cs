@@ -9,14 +9,11 @@ public interface IShip
     void ShipDestroy();
 }
 
-public struct ShipBehaviors
-{
-
-}
-
 public struct ShipStats
 {
-    public int HpMax;
-    public int HP;
+    public int HpMax;//aka max structural integrity
+    public int HP;//aka current structural integrity
+    public int SpeedMax;
+    public int Speed;
 
 }
