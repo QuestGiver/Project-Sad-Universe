@@ -32,4 +32,6 @@ public struct ShipStats
     public int ShieldMax;//The maximum strength of the ships shield, determined by "((shield generator size/ship size) * shield rating) * (100 * power distributer allocation)" //power distributor allocation should range from 0.25-2
     public int PwrSupply;//the rate by which Charge regenerates per turns
     public int PwrSupplyMax;//The maximum, and probably normal, Charge regeneration ammount
+
+
 }

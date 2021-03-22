@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class CombatManager : MonoBehaviour
 {
+    private PlayerInfo playerInfo;
+    private CommanderInfo commanderInfo;
+
     private int Round;//Current Round
     private int Turn;//Current turn
     private int Reactions;//number of reactions left to cycle through
+    private List<Ship> roundOrder;
+    public List<Ship> RoundOrder { get => roundOrder; private set => roundOrder = value; }
 
     // Start is called before the first frame update
     void Start()
@@ -20,23 +25,20 @@ public class CombatManager : MonoBehaviour
         
     }
 
-    private int[] InitializeTurnOrder(int[] _speedStatArray)
+
+    private List<Ship> InitializeTurnOrder()//unordered stack of ships goes in
     {
-        for (int i = 0; i < _speedStatArray.Length; i++)
+        List<Ship> allShips = new List<Ship>();
+        allShips.AddRange(playerInfo.PlayerFleet);
+        allShips.AddRange(commanderInfo.CommanderFleet);
+
+        foreach (Ship item in allShips)
         {
-            if (i + 1 < _speedStatArray.Length)
-            {
-                if (_speedStatArray[i] > _speedStatArray[i + 1])
-                {
-                    _speedStatArray[i] += _speedStatArray[i + 1];
-                    _speedStatArray[i + 1] -= _speedStatArray[i];
-                    _speedStatArray[i] -= _speedStatArray[i + 1];
-                    i = 0;
-                }
-            }
+            //quicksort based on ship speed
         }
 
-        return _speedStatArray;
+
+        return allShips;
     }
 
     private void TurnManager()//should be a coroutine
