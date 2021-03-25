@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface IShip
 {
-    void ShipAttack();
+    void ShipAttack(int index);//weapon is selected via index
     void UpdatePosition();
     void CheckPowerDist();
     void ShipDestroy();
@@ -33,5 +33,46 @@ public struct ShipStats
     public int PwrSupply;//the rate by which Charge regenerates per turns
     public int PwrSupplyMax;//The maximum, and probably normal, Charge regeneration ammount
 
-
+    public ShipStats(
+        int hpMax,
+        int hP,
+        int speedMax,
+        int speed,
+        int chargeMax,
+        int charge,
+        int evasion,
+        int evasionMax,
+        int dissipation,
+        int dissipationMax,
+        int luck,
+        int luckMax,
+        int resistance,
+        int resistanceMax,
+        int heat, int heatMax,
+        int shields,
+        int shieldMax,
+        int pwrSupply,
+        int pwrSupplyMax)
+    {
+        HpMax = hpMax;
+        HP = hP;
+        SpeedMax = speedMax;
+        Speed = speed;
+        ChargeMax = chargeMax;
+        Charge = charge;
+        Evasion = evasion;
+        EvasionMax = evasionMax;
+        Dissipation = dissipation;
+        DissipationMax = dissipationMax;
+        Luck = luck;
+        LuckMax = luckMax;
+        Resistance = resistance;
+        ResistanceMax = resistanceMax;
+        Heat = heat;
+        HeatMax = heatMax;
+        Shields = shields;
+        ShieldMax = shieldMax;
+        PwrSupply = pwrSupply;
+        PwrSupplyMax = pwrSupplyMax;
+    }
 }

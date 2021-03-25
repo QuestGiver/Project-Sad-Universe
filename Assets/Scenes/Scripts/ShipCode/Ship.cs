@@ -2,10 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ship : MonoBehaviour, IShip
+public class Ship : IShip
 {
-    IShipEquipment ShipAttackBehavior;
+    public string ShipName = "Default";
+    List<IShipEquipment> ShipAttackBehaviors = new List<IShipEquipment>();
+    private ShipStats shipStats;
     private int baseDamage = 20; //the base damage that any ship weapon would deal given a damage multiplier of 100%
+
+    public ShipStats ShipStats { get => shipStats; set => shipStats = value; }
 
     //execute ship destruction behavior
     public void ShipDestroy()
@@ -20,9 +24,9 @@ public class Ship : MonoBehaviour, IShip
     }
 
     //execute attack behavior
-    public void ShipAttack()
+    public void ShipAttack(int index)
     {
-        ShipAttackBehavior.Activate();
+        ShipAttackBehaviors[index].Activate();
     }
 
     //check power distibution and update relevant statistics
@@ -31,17 +35,23 @@ public class Ship : MonoBehaviour, IShip
         throw new System.NotImplementedException();
     }
 
-    // Start is called before the first frame update
-    void Start()
+
+    public Ship()//default creation
     {
-        ShipAttackBehavior = new ShipWeapon();
+        ShipName = "Default";
+        ShipAttackBehaviors.Add(new ShipWeapon());
+        shipStats = new ShipStats
+            (
+            100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100
+            );
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public Ship(string _shipName,List<IShipEquipment> _shipAttackBehavior, int _baseDamage, ShipStats _shipStats) //specific creation
     {
-        
+        ShipName = _shipName;
+        ShipAttackBehaviors = _shipAttackBehavior;
+        ShipStats = _shipStats;
+        baseDamage = _baseDamage;
     }
-
-
 }
