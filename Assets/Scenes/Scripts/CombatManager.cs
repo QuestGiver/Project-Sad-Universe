@@ -15,6 +15,16 @@ public class CombatManager : MonoBehaviour
     public static Dictionary<int, Ship> ShipIDPairs { get => shipIDPairs; private set => shipIDPairs = value; }
 
     private static List<Ship> roundOrder;
+
+    public CombatManager(PlayerInfo playerInfo, CommanderInfo commanderInfo, int round, int turn, int reactions)
+    {
+        this.playerInfo = playerInfo;
+        this.commanderInfo = commanderInfo;
+        Round = round;
+        Turn = turn;
+        Reactions = reactions;
+    }
+
     public static List<Ship> RoundOrder { get => roundOrder; private set => roundOrder = value; }
 
 
