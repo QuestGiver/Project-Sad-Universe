@@ -2,11 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class EncounterBuilder
+public class EncounterData : ScriptableObject
 {
-    public CombatManager combatManager;
-
-
-
+    CommanderInfo adversaryData;
 }

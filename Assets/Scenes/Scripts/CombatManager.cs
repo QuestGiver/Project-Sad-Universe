@@ -34,13 +34,9 @@ public class CombatManager : MonoBehaviour
         InitializeTurnOrder();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        ProcessTurn();
-        ProcessRound();
-    }
 
+
+    //Functions below connect to UI Assets
     private void InitializeTurnOrder()//unordered stack of ships goes in
     {
 

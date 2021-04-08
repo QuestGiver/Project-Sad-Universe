@@ -42,7 +42,26 @@ public class Ship : IShip
         ShipAttackBehaviors.Add(new ShipWeapon());
         shipStats = new ShipStats
             (
-            100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100
+            100,//hp max
+            100,//hp
+            100,//speedMax
+            100,//speed
+            100,//chargeMax
+            100,//charge
+            100,//evasionMax
+            100,//evasion
+            100,//dissipationMax
+            100,//dissipation
+            100,//luckMax
+            100,//luck
+            100,//resistanceMax
+            100,//resistance
+            100,//heatMax
+            100,//heat
+            100,//shieldMax
+            100,//shields
+            100,//pwrSupplyMax
+            100 //pwrSupply
             );
 
     }

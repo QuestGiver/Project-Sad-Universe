@@ -40,19 +40,21 @@ public struct ShipStats
         int speed,
         int chargeMax,
         int charge,
-        int evasion,
         int evasionMax,
-        int dissipation,
+        int evasion,
         int dissipationMax,
-        int luck,
+        int dissipation,
         int luckMax,
-        int resistance,
+        int luck,
         int resistanceMax,
-        int heat, int heatMax,
-        int shields,
+        int resistance,
+        int heatMax,
+        int heat,
         int shieldMax,
-        int pwrSupply,
-        int pwrSupplyMax)
+        int shields,
+        int pwrSupplyMax,
+        int pwrSupply
+        )
     {
         HpMax = hpMax;
         HP = hP;
