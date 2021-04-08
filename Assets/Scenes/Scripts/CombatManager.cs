@@ -31,13 +31,14 @@ public class CombatManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        InitializeTurnOrder();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        ProcessTurn();
+        ProcessRound();
     }
 
     private void InitializeTurnOrder()//unordered stack of ships goes in
@@ -45,23 +46,24 @@ public class CombatManager : MonoBehaviour
 
     }
 
-    private void ProcessTurn()
+    public void ProcessTurn()
     {
 
     }
 
-    private void ProcessRound()
+    public void ProcessRound()
     {
 
     }
 
-    private void ReactionCounter()
+    public void ReactionCounter()
     {
         //event logic
     }
 
     public void ProcessAttack(int index, int damage)//Index should be handed to this function by UI code:  mouse over target ship->ui requests ship
     { 
+
     }
 
 }
