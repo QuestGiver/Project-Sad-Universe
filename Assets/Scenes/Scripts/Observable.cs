@@ -18,4 +18,15 @@ public class Observable : IObservable
     {
         throw new System.NotImplementedException();
     }
+
+    void getState()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    void setState()
+    {
+        throw new System.NotImplementedException();
+    }
+
 }
