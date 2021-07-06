@@ -2,21 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Observable : IObservable
+public abstract class Observable : IObservable
 {
-    public void addObverver()
+    List<IObserver> spies;
+
+    public virtual void addObverver(IObserver _spy)
     {
-        throw new System.NotImplementedException();
+        spies.Add(_spy);
     }
 
-    public void notifyObserver()
+    public virtual void notifyObserver()
     {
-        throw new System.NotImplementedException();
+        foreach (IObserver item in spies)
+        {
+            item.oUpdate();
+        }
     }
 
-    public void removeObserver()
+    public virtual void removeObserver(IObserver _spy)
     {
-        throw new System.NotImplementedException();
+        spies.Remove(_spy);
     }
 
     void getState()

@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Observer : IObserver
+public abstract class Observer : IObserver
 {
-    public void oUpdate()
+    public virtual void oUpdate()
     {
         throw new System.NotImplementedException();
     }

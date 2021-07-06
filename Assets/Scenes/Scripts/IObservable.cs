@@ -4,9 +4,9 @@ using UnityEngine;
 
 public interface IObservable
 {
-    void addObverver();
+    void addObverver(IObserver _spy);
 
-    void removeObserver();
+    void removeObserver(IObserver _spy);
 
     void notifyObserver();
 
