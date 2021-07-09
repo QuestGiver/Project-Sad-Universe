@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ship : IShip
+public class Ship : ScriptableObject, IShip
 {
     public string ShipName = "Default";
     List<IShipEquipment> ShipAttackBehaviors = new List<IShipEquipment>();
+
     private ShipStats shipStats;
+    private ShipAttributes shipAttributes;
+
     private int baseDamage = 20; //the base damage that any ship weapon would deal given a damage multiplier of 100%
 
     public ShipStats ShipStats { get => shipStats; set => shipStats = value; }
@@ -17,11 +20,13 @@ public class Ship : IShip
         throw new System.NotImplementedException();
     }
 
-    //update ship position on radar
+    //DEPRICATE //update ship position on radar
     public void UpdatePosition()
     {
         throw new System.NotImplementedException();
     }
+
+
 
     //execute attack behavior
     public void ShipAttack(int index)
