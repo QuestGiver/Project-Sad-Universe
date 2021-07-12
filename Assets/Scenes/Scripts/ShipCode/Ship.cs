@@ -5,14 +5,19 @@ using UnityEngine;
 public class Ship : ScriptableObject, IShip
 {
     public string ShipName = "Default";
+
+    //Attack behaviors are stored here
     List<IShipEquipment> ShipAttackBehaviors = new List<IShipEquipment>();
 
+    [SerializeField]
     private ShipStats shipStats;
+    [SerializeField]
     private ShipAttributes shipAttributes;
 
     private int baseDamage = 20; //the base damage that any ship weapon would deal given a damage multiplier of 100%
 
     public ShipStats ShipStats { get => shipStats; set => shipStats = value; }
+    public ShipAttributes ShipAttributes { get => shipAttributes; set => shipAttributes = value; }
 
     //execute ship destruction behavior
     public void ShipDestroy()

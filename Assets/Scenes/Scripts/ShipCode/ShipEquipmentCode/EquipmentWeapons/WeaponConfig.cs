@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New WeaponConfig Data", menuName = "Weapon Config Data", order = 51)]
-public class WeaponConfig : ScriptableObject, IWeaponConfig
+public class WeaponConfig : ScriptableObject, IWeaponConfig, IShipEquipment
 {
     [SerializeField]
     float baseDamageModifer = 1;
@@ -15,12 +15,17 @@ public class WeaponConfig : ScriptableObject, IWeaponConfig
     public float BaseDamageModifier
     {
         get => baseDamageModifer;
-        set => baseDamageModifer = value;
+        private set => baseDamageModifer = value;
     }
 
     public string WeaponName
     {
         get => weaponName;
-        set => weaponName = value;
+        private set => weaponName = value;
+    }
+
+    public void Activate()
+    {
+        throw new System.NotImplementedException();
     }
 }

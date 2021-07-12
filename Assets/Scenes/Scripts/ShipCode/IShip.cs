@@ -8,18 +8,26 @@ public interface IShip
     void UpdatePosition();
     void CheckPowerDist();
     void ShipDestroy();
+    /*
+     * Or should these be replaced with
+     * methods that simply give the UI information
+     * such as current speedMax or the hp?
+     * 
+     */
+
+
 }
 
 [System.Serializable]
 public struct ShipAttributes
 {
-    int Engines;//(evasion and speed)
-    int HeatManagement;//(cool down times)
-    int Structure;//(hit points)
-    int Affinity;//(Boarding Defense and buff/debuff multiplier)
-    int AI;//(Luck and misc determinants)
-    int ArmorRating;//(Resistance to damage)
-    int Size;//(total space for upgrades/weapons and size class of ship/this stat and the shield generator rating and slot size determine max shield strength)
+    public int Engines,//(evasion and speed)
+    HeatManagement,//(cool down times)
+    Structure,//(hit points)
+    Affinity,//(Boarding Defense and buff/debuff multiplier)
+    AI,//(Luck and misc determinants)
+    ArmorRating,//(Resistance to damage)
+    Size;//(total space for upgrades/weapons and size class of ship/this stat and the shield generator rating and slot size determine max shield strength)
 
     public ShipAttributes(
         int _engines,
@@ -47,26 +55,26 @@ public struct ShipAttributes
 [System.Serializable]
 public struct ShipStats
 {
-    public int HpMax;//max structural integrity
-    public int HP;//current structural integrity
-    public int SpeedMax;//maximum speed value for ship
-    public int Speed;//Total speed after calculations
-    public int ChargeMax;//maximum action points
-    public int Charge;//current action points availible
-    public int Evasion;//how evasive the ship current is
-    public int EvasionMax;//how evasive the ship can be
-    public int Dissipation;//how much heat the ship can currently dissipate per turn
-    public int DissipationMax;//the maximum value the ship can obtain for dissipation
-    public int Luck;//current critial hit chance modifier and accuracy modifier
-    public int LuckMax;//the maximum ammount of luck the ship may have
-    public int Resistance;//the current percentage of damage that the ships hull can resist
-    public int ResistanceMax;//maximum resistance percentage the ship allows
-    public int Heat;//the current heat level of the ship
-    public int HeatMax;//The maximum ammount of heat the ship can gain before taking damage
-    public int Shields;//The current strength of the ships shields
-    public int ShieldMax;//The maximum strength of the ships shield, determined by "((shield generator size/ship size) * shield rating) * (100 * power distributer allocation)" //power distributor allocation should range from 0.25-2
-    public int PwrSupply;//the rate by which Charge regenerates per turns
-    public int PwrSupplyMax;//The maximum, and probably normal, Charge regeneration ammount
+    public int HpMax,//max structural integrity
+    HP,//current structural integrity
+    SpeedMax,//maximum speed value for ship
+    Speed,//Total speed after calculations
+    ChargeMax,//maximum action points
+    Charge,//current action points availible
+    Evasion,//how evasive the ship current is
+    EvasionMax,//how evasive the ship can be
+    Dissipation,//how much heat the ship can currently dissipate per turn
+    DissipationMax,//the maximum value the ship can obtain for dissipation
+    Luck,//current critial hit chance modifier and accuracy modifier
+    LuckMax,//the maximum ammount of luck the ship may have
+    Resistance,//the current percentage of damage that the ships hull can resist
+    ResistanceMax,//maximum resistance percentage the ship allows
+    Heat,//the current heat level of the ship
+    HeatMax,//The maximum ammount of heat the ship can gain before taking damage
+    Shields,//The current strength of the ships shields
+    ShieldMax,//The maximum strength of the ships shield, determined by "((shield generator size/ship size) * shield rating) * (100 * power distributer allocation)" //power distributor allocation should range from 0.25-2
+    PwrSupply,//the rate by which Charge regenerates per turns
+    PwrSupplyMax;//The maximum, and probably normal, Charge regeneration ammount
 
 
     public ShipStats(

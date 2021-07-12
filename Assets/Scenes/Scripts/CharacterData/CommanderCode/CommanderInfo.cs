@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class CommanderInfo
 {
-    public List<Ship> CommanderFleet = new List<Ship>();
+    public List<IShip> CommanderFleet = new List<IShip>();
 
     public void SubmitFleet()
     {
-        if(CommanderFleet.Count > 0)
-        CombatManager.RoundOrder.AddRange(CommanderFleet);
+        if (CommanderFleet.Count > 0)
+        {
+            
+        }
     }
 }
