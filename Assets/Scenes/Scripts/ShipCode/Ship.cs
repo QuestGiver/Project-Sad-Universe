@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "New Ship Data", menuName = "Ship Data", order = 51)]
 public class Ship : ScriptableObject, IShip
 {
     public string ShipName = "Default";
 
-    //Attack behaviors are stored here
-    List<IShipEquipment> ShipAttackBehaviors = new List<IShipEquipment>();
+    //All Equipment is stored here
+    [SerializeField]
+    private List<IShipEquipment> ShipEquipment = new List<IShipEquipment>();
 
     [SerializeField]
     private ShipStats shipStats;
@@ -36,7 +38,7 @@ public class Ship : ScriptableObject, IShip
     //execute attack behavior
     public void ShipAttack(int index)
     {
-        ShipAttackBehaviors[index].Activate();
+        ShipEquipment[index].Activate();
     }
 
     //check power distibution and update relevant statistics
@@ -49,7 +51,7 @@ public class Ship : ScriptableObject, IShip
     public Ship()//default creation
     {
         ShipName = "Default";
-        ShipAttackBehaviors.Add(new ShipWeapon());
+       // ShipAttackBehaviors.Add(new ShipWeapon());
         shipStats = new ShipStats
             (
             100,//hp max
@@ -79,7 +81,7 @@ public class Ship : ScriptableObject, IShip
     public Ship(string _shipName,List<IShipEquipment> _shipAttackBehavior, int _baseDamage, ShipStats _shipStats) //specific creation
     {
         ShipName = _shipName;
-        ShipAttackBehaviors = _shipAttackBehavior;
+        ShipEquipment = _shipAttackBehavior;
         ShipStats = _shipStats;
         baseDamage = _baseDamage;
     }

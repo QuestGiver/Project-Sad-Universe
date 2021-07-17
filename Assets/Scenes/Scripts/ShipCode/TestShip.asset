@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cbb980d9518aae469f549e24c5cf096, type: 3}
+  m_Name: TestShip
+  m_EditorClassIdentifier: 
+  ShipName: Default
+  shipStats:
+    HpMax: 100
+    HP: 100
+    SpeedMax: 100
+    Speed: 100
+    ChargeMax: 100
+    Charge: 100
+    Evasion: 100
+    EvasionMax: 100
+    Dissipation: 100
+    DissipationMax: 100
+    Luck: 100
+    LuckMax: 100
+    Resistance: 100
+    ResistanceMax: 100
+    Heat: 100
+    HeatMax: 100
+    Shields: 100
+    ShieldMax: 100
+    PwrSupply: 100
+    PwrSupplyMax: 100
+  shipAttributes:
+    Engines: 0
+    HeatManagement: 0
+    Structure: 0
+    Affinity: 0
+    AI: 0
+    ArmorRating: 0
+    Size: 0
