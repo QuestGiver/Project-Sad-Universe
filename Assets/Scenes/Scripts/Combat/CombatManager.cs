@@ -59,6 +59,11 @@ public class CombatManager : MonoBehaviour
     //Main Combat Funtions Below----------------------------------------------------------------------------------------
 
 
+    //must be tied to a UI object to function
+    public void EquipmentProcess(IShip _target, IShip _source, IShipEquipment _equipment)
+    {
+        _equipment.Activate(_target, _source);
+    }
 
 
 

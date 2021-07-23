@@ -30,9 +30,11 @@ public class WeaponConfig : ScriptableObject, IShipEquipment
         private set => weaponName = value;
     }
 
-    public void Activate()
+    public void Activate(IShip _target, IShip _source)
     {
-        throw new System.NotImplementedException();
+        ShipStats temp = _target.ShipStats;
+        temp.HP -= Mathf.FloorToInt(baseDamageModifer * _source.BaseDamage);
+        _target.ShipStats = temp;
     }
 
     public EquipmentType GetEquipType(EquipmentType _type)

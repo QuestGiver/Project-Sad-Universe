@@ -5,22 +5,30 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Ship Data", menuName = "Ship Data", order = 51)]
 public class Ship : ScriptableObject, IShip
 {
-    public string ShipName = "Default";
 
+    //Lists===============================================================================================================================|
     //All Equipment is stored here
-    [SerializeField]
     private List<IShipEquipment> ShipEquipment = new List<IShipEquipment>();
 
+    //Fields==============================================================================================================================|
     [SerializeField]
     private ShipStats shipStats;
     [SerializeField]
     private ShipAttributes shipAttributes;
-
+    [SerializeField]
     private int baseDamage = 20; //the base damage that any ship weapon would deal given a damage multiplier of 100%
+    [SerializeField]
+    private string shipName = "Default";
 
+    //Properties==========================================================================================================================|
     public ShipStats ShipStats { get => shipStats; set => shipStats = value; }
     public ShipAttributes ShipAttributes { get => shipAttributes; set => shipAttributes = value; }
+    public int BaseDamage { get => baseDamage; set => baseDamage = value; }
+    public string ShipName { get => shipName; set => shipName = value; }
 
+
+
+    //Methods============================================================================================================================|
     //execute ship destruction behavior
     public void ShipDestroy()
     {
@@ -31,14 +39,6 @@ public class Ship : ScriptableObject, IShip
     public void UpdatePosition()
     {
         throw new System.NotImplementedException();
-    }
-
-
-
-    //execute attack behavior
-    public void ShipAttack(int index)
-    {
-        ShipEquipment[index].Activate();
     }
 
     //check power distibution and update relevant statistics
@@ -83,6 +83,6 @@ public class Ship : ScriptableObject, IShip
         ShipName = _shipName;
         ShipEquipment = _shipAttackBehavior;
         ShipStats = _shipStats;
-        baseDamage = _baseDamage;
+        BaseDamage = _baseDamage;
     }
 }
