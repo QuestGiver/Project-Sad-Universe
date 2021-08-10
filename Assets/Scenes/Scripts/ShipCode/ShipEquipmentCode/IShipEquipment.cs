@@ -6,7 +6,6 @@ using UnityEngine;
 public interface IShipEquipment
 {
     void Activate(IShip _target, IShip _source);
-    EquipmentType GetEquipType(EquipmentType _type);
 
 }
 

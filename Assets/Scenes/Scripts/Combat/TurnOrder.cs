@@ -5,7 +5,7 @@ using UnityEngine;
 
 //UI intended to display information, rather than take input
 //will observe this class
-public static class TurnOrder
+public class TurnOrder
 {
     public static int Round;//Current Round
     private static int turn;//Current turn

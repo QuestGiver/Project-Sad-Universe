@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CommanderInfo
+public class CommanderInfo : ScriptableObject
 {
-    public List<IShip> CommanderFleet = new List<IShip>();
+    public List<Ship> CommanderFleet = new List<Ship>();
+    public string Name;
 
     public void SubmitFleet()
     {
@@ -13,4 +14,6 @@ public class CommanderInfo
             
         }
     }
+
+
 }

@@ -10,6 +10,10 @@ public class CombatManager : MonoBehaviour
 {
     private int totalShips = 0;
 
+    public Ship enemyShip;//for testing Only
+    public Ship playerShip;//for testing Only
+    public CommanderInfo player; //testing only
+    public CommanderInfo enemy; //testing only
 
     //---------------------------------------------------------------------------------------
     /*This portion of code is supposed to recieve information about commanders
@@ -39,7 +43,7 @@ public class CombatManager : MonoBehaviour
      *easy access. It should help facilitate tracking which ships die and/if they are 
      *revived.
      */
-    private static Dictionary<int, Ship> shipIDPairs = new Dictionary<int, Ship>();
+    private static Dictionary<float, Ship> shipIDPairs = new Dictionary<float, Ship>();
     public static void RegisterShips(Ship _ship)
     {
         shipIDPairs.Add(_ship.ShipAttributes.Engines, _ship);
@@ -53,7 +57,7 @@ public class CombatManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        EquipmentProcess(enemyShip, playerShip, playerShip.weaponConfigs[0]);
     }
 
     //Main Combat Funtions Below----------------------------------------------------------------------------------------

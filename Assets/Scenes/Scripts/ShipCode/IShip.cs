@@ -7,13 +7,14 @@ public interface IShip
     void UpdatePosition();
     void CheckPowerDist();
     void ShipDestroy();
+    void AttributesToStats();
 
     //properties
     public ShipAttributes ShipAttributes { get; set; }
     public ShipStats ShipStats { get;  set; }
-    public int BaseDamage { get; set; }
-    public string ShipName { get; set; }
-
+    public float BaseDamage { get;}
+    public string ShipName { get;}
+    
 
 
 
@@ -31,31 +32,32 @@ public interface IShip
 [System.Serializable]
 public struct ShipAttributes
 {
-    private int size;//(total space for upgrades/weapons and size class of ship/this stat and the shield generator rating and slot size determine max shield strength)
-    private int engines;
-    private int heatManagement;
-    private int structure;
-    private int affinity;
-    private int aI;
-    private int armorRating;
+    [SerializeField]
+    private float size,//(total space for upgrades/weapons and size class of ship/this stat and the shield generator rating and slot size determine max shield strength)
+    engines,
+    heatManagement,
+    structure,
+    affinity,
+    aI,
+    armorRating;
 
     //I was trying something and created these, not sure when i'll use them but i'm keeping them for when balance testing needs to happen.
-    public int Engines { get => engines; set => engines = value; }
-    public int HeatManagement { get => heatManagement; set => heatManagement = value; }
-    public int Structure { get => structure; set => structure = value; }
-    public int Affinity { get => affinity; set => affinity = value; }
-    public int AI { get => aI; set => aI = value; }
-    public int ArmorRating { get => armorRating; set => armorRating = value; }
-    public int Size { get => size; set => size = value; }
+    public float Engines { get => engines; set => engines = value; }
+    public float HeatManagement { get => heatManagement; set => heatManagement = value; }
+    public float Structure { get => structure; set => structure = value; }
+    public float Affinity { get => affinity; set => affinity = value; }
+    public float AI { get => aI; set => aI = value; }
+    public float ArmorRating { get => armorRating; set => armorRating = value; }
+    public float Size { get => size; set => size = value; }
 
     public ShipAttributes(
-        int _engines,
-        int _heatManagement,
-        int _structure,
-        int _affinity,
-        int _aI,
-        int _armorRating,
-        int _size
+        float _engines,
+        float _heatManagement,
+        float _structure,
+        float _affinity,
+        float _aI,
+        float _armorRating,
+        float _size
         )
     {
         engines = _engines;//(evasion and speed)
@@ -75,91 +77,92 @@ public struct ShipAttributes
 [System.Serializable]
 public struct ShipStats
 {
-    private int pwrSupplyMax;//The maximum, and probably normal, Charge regeneration ammount
-    private int hpMax;
-    private int hP;
-    private int speedMax;
-    private int speed;
-    private int chargeMax;
-    private int charge;
-    private int evasion;
-    private int evasionMax;
-    private int dissipation;
-    private int dissipationMax;
-    private int luck;
-    private int luckMax;
-    private int resistance;
-    private int resistanceMax;
-    private int heat;
-    private int heatMax;
-    private int shields;
-    private int shieldMax;
-    private int pwrSupply;
+    [SerializeField]
+    private float maxPwrSupply,//The maximum, and probably normal, Charge regeneration ammount
+    pwrSupply,
+    maxHp,
+    hP,
+    maxSpeed,
+    speed,
+    maxCharge,
+    charge,
+    maxEvasion,
+    evasion,
+    maxDissipation,
+    dissipation,
+    maxLuck,
+    luck,
+    maxResistance,
+    resistance,
+    maxHeat,
+    heat,
+    maxShield,
+    shields;
 
     public ShipStats(
-        int _hpMax,
-        int _hP,
-        int _speedMax,
-        int _speed,
-        int _chargeMax,
-        int _charge,
-        int _evasionMax,
-        int _evasion,
-        int _dissipationMax,
-        int _dissipation,
-        int _luckMax,
-        int _luck,
-        int _resistanceMax,
-        int _resistance,
-        int _heatMax,
-        int _heat,
-        int _shieldMax,
-        int _shields,
-        int _pwrSupplyMax,
-        int _pwrSupply
+        float _hpMax,
+        float _hP,
+        float _speedMax,
+        float _speed,
+        float _chargeMax,
+        float _charge,
+        float _evasionMax,
+        float _evasion,
+        float _dissipationMax,
+        float _dissipation,
+        float _luckMax,
+        float _luck,
+        float _resistanceMax,
+        float _resistance,
+        float _heatMax,
+        float _heat,
+        float _shieldMax,
+        float _shields,
+        float _pwrSupplyMax,
+        float _pwrSupply
         )
     {
-        hpMax = _hpMax;
+        maxHp = _hpMax;
         hP = _hP;
-        speedMax = _speedMax;
+        maxSpeed = _speedMax;
         speed = _speed;
-        chargeMax = _chargeMax;
+        maxCharge = _chargeMax;
         charge = _charge;
         evasion = _evasion;
-        evasionMax = _evasionMax;
+        maxEvasion = _evasionMax;
         dissipation = _dissipation;
-        dissipationMax = _dissipationMax;
+        maxDissipation = _dissipationMax;
         luck = _luck;
-        luckMax = _luckMax;
+        maxLuck = _luckMax;
         resistance = _resistance;
-        resistanceMax = _resistanceMax;
+        maxResistance = _resistanceMax;
         heat = _heat;
-        heatMax = _heatMax;
+        maxHeat = _heatMax;
         shields = _shields;
-        shieldMax = _shieldMax;
+        maxShield = _shieldMax;
         pwrSupply = _pwrSupply;
-        pwrSupplyMax = _pwrSupplyMax;
+        maxPwrSupply = _pwrSupplyMax;
     }
 
     //I was trying something and created these, not sure when i'll use them but i'm keeping them for when balance testing needs to happen.
-    public int HpMax { get => hpMax; set => hpMax = value; }
-    public int HP { get => hP; set => hP = value; }
-    public int SpeedMax { get => speedMax; set => speedMax = value; }
-    public int Speed { get => speed; set => speed = value; }
-    public int ChargeMax { get => chargeMax; set => chargeMax = value; }
-    public int Charge { get => charge; set => charge = value; }
-    public int Evasion { get => evasion; set => evasion = value; }
-    public int EvasionMax { get => evasionMax; set => evasionMax = value; }
-    public int Dissipation { get => dissipation; set => dissipation = value; }
-    public int DissipationMax { get => dissipationMax; set => dissipationMax = value; }
-    public int Luck { get => luck; set => luck = value; }
-    public int LuckMax { get => luckMax; set => luckMax = value; }
-    public int Resistance { get => resistance; set => resistance = value; }
-    public int ResistanceMax { get => resistanceMax; set => resistanceMax = value; }
-    public int Heat { get => heat; set => heat = value; }
-    public int HeatMax { get => heatMax; set => heatMax = value; }
-    public int Shields { get => shields; set => shields = value; }
-    public int ShieldMax { get => shieldMax; set => shieldMax = value; }
-    public int PwrSupply { get => pwrSupply; set => pwrSupply = value; }
-    public int PwrSupplyMax { get => pwrSupplyMax; set => pwrSupplyMax = value; }
+    public float MaxHp { get => maxHp; set => maxHp = value; }
+    public float HP { get => hP; set => hP = value; }
+    public float MaxSpeed { get => maxSpeed; set => maxSpeed = value; }
+    public float Speed { get => speed; set => speed = value; }
+    public float MaxCharge { get => maxCharge; set => maxCharge = value; }
+    public float Charge { get => charge; set => charge = value; }
+    public float MaxEvasion { get => maxEvasion; set => maxEvasion = value; }
+    public float Evasion { get => evasion; set => evasion = value; }
+    public float MaxDissipation { get => maxDissipation; set => maxDissipation = value; }
+    public float Dissipation { get => dissipation; set => dissipation = value; }
+    public float MaxLuck { get => maxLuck; set => maxLuck = value; }
+    public float Luck { get => luck; set => luck = value; }
+    public float MaxResistance { get => maxResistance; set => maxResistance = value; }
+    public float Resistance { get => resistance; set => resistance = value; }
+    public float MaxHeat { get => maxHeat; set => maxHeat = value; }
+    public float Heat { get => heat; set => heat = value; }
+    public float MaxShield { get => maxShield; set => maxShield = value; }
+    public float Shields { get => shields; set => shields = value; }
+    public float MaxPwrSupply { get => maxPwrSupply; set => maxPwrSupply = value; }
+    public float PwrSupply { get => pwrSupply; set => pwrSupply = value; }
 }

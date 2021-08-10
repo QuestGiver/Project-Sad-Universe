@@ -5,9 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New WeaponConfig Data", menuName = "Weapon Config Data", order = 51)]
 public class WeaponConfig : ScriptableObject, IShipEquipment
 {
-
-    [SerializeField]
-    private EquipmentType MyType = EquipmentType.WEAPON;
     [SerializeField]
     float baseRange = 100;
     [SerializeField]
@@ -33,12 +30,10 @@ public class WeaponConfig : ScriptableObject, IShipEquipment
     public void Activate(IShip _target, IShip _source)
     {
         ShipStats temp = _target.ShipStats;
+        Debug.Log(temp.HP);
         temp.HP -= Mathf.FloorToInt(baseDamageModifer * _source.BaseDamage);
+        Debug.Log(temp.HP);
         _target.ShipStats = temp;
     }
 
-    public EquipmentType GetEquipType(EquipmentType _type)
-    {
-        return _type;
-    }
 }

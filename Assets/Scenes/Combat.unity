@@ -1677,6 +1677,7 @@ GameObject:
   - component: {fileID: 546114358}
   - component: {fileID: 546114360}
   - component: {fileID: 546114359}
+  - component: {fileID: 546114361}
   m_Layer: 5
   m_Name: Enemy Ship
   m_TagString: Untagged
@@ -1741,6 +1742,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 546114357}
   m_CullTransparentMesh: 0
+--- !u!114 &546114361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 546114357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5bcd40610bd04b4a927e3cbf0b4d15e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  model: {fileID: 11400000, guid: 3c65c02d57946e24fb674bd9a34e32e9, type: 2}
 --- !u!1 &573538264
 GameObject:
   m_ObjectHideFlags: 0
@@ -3063,8 +3077,9 @@ GameObject:
   - component: {fileID: 1071653849}
   - component: {fileID: 1071653850}
   - component: {fileID: 1071653851}
+  - component: {fileID: 1071653852}
   m_Layer: 0
-  m_Name: PlayerShip1
+  m_Name: PlayerShip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3127,6 +3142,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1071653852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1071653848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5bcd40610bd04b4a927e3cbf0b4d15e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  model: {fileID: 11400000, guid: 3c65c02d57946e24fb674bd9a34e32e9, type: 2}
 --- !u!1 &1111431434
 GameObject:
   m_ObjectHideFlags: 0
@@ -3156,6 +3184,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31d833c0417c8244a89500bd004245a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 11400000, guid: 3c65c02d57946e24fb674bd9a34e32e9, type: 2}
+  player: {fileID: 11400000, guid: 3c65c02d57946e24fb674bd9a34e32e9, type: 2}
+  testwep: {fileID: 11400000, guid: ad540e44e5ac02c4099d2ed33a8d0e39, type: 2}
 --- !u!4 &1111431436
 Transform:
   m_ObjectHideFlags: 0
