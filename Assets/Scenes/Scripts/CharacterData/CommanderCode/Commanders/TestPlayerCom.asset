@@ -9,13 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e091419f1b378948ac90807fc7dd354, type: 3}
-  m_Name: TestWeapon
+  m_Script: {fileID: 11500000, guid: 946653221608f644da8773a32273a0c7, type: 3}
+  m_Name: TestPlayerCom
   m_EditorClassIdentifier: 
-  heatGenerated: 10
-  coolDown: 1
-  chargeUp: 1
-  baseRange: 100
-  baseSpeed: 10
-  baseDamageModifer: 1.1
-  weaponName: Default
+  CommanderFleet:
+  - {fileID: 11400000, guid: 3c65c02d57946e24fb674bd9a34e32e9, type: 2}
+  Name: Conner

@@ -68,7 +68,7 @@ public class Ship : ScriptableObject, IShip
         throw new System.NotImplementedException();
     }
 
-    
+    //Takes ship attribute data and turns it into stats to be displayed in combat
     public void AttributesToStats()
     {
         ShipStats statsTemp = shipStats;
@@ -84,7 +84,7 @@ public class Ship : ScriptableObject, IShip
 
         shipStats.MaxCharge = 10//end result needed to be larger, multiplied entire result by 10
                               * ((0.75f * shipAttributes.AI) + (0.25f * shipAttributes.HeatManagement))//relevant attributes are combined in a 3:1 ratio
-                              * ((Multi_AI * 0.75f) + (Multi_HeatManagement * 0.25f));//relevant multiplier are combined in a 3:1 ration and multiply the current combined attribute value
+                              * ((Multi_AI * 0.75f) + (Multi_HeatManagement * 0.25f));//relevant multiplier are combined in a 3:1 ratio and multiply the current combined attribute value
 
         shipStats.MaxDissipation = (shipAttributes.HeatManagement * (Multi_HeatManagement * 0.5f))//multiplies the heatmanagement attribute score by a portion of the native heatmanagemnt multiplier
                                    / Mathf.Min(1.5f, shipAttributes.Size / (shipAttributes.HeatManagement * 0.9f));//divides the first value from the above line by
@@ -106,7 +106,7 @@ public class Ship : ScriptableObject, IShip
         shipStats.MaxPwrSupply = ((shipAttributes.Affinity * 0.5f) + (shipAttributes.AI * 0.5f)) // half of both the affinity and AI att scores are combined
                                  * ((Multi_Affinity * 0.5f) + (Multi_AI * 0.5f));//a portion of the relevent multipliers are combined to one multiplier
 
-        shipStats.MaxEvasion = ((shipAttributes.Engines) - Mathf.Min(shipAttributes.Engines - 1, (shipAttributes.Size * 0.25f)))//subtracts a quarter of the ship size from the engines att. Minimum engines att -1.
+        shipStats.MaxEvasion = ((shipAttributes.Engines) - Mathf.Min(shipAttributes.Engines - 1, (shipAttributes.Size * 0.25f)))//subtracts a quarter of the ship size from the engines att. Minimum is engines att -1.
                                * ((Multi_Engines) - (Multi_Size * 0.25f));// subtracts a quarter of the size native multiplier from the engines multiplier.
 
 

@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-//UI intended to display information, rather than take input
-//will observe this class
+//UI intended to display information, rather than take input will observe this class
 public class TurnOrder
 {
     public static int Round;//Current Round

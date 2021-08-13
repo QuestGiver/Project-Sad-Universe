@@ -9,14 +9,11 @@ using UnityEngine;
 public class CombatManager : MonoBehaviour
 {
     private int totalShips = 0;
-
-    public Ship enemyShip;//for testing Only
-    public Ship playerShip;//for testing Only
-    public CommanderInfo player; //testing only
-    public CommanderInfo enemy; //testing only
+    public CommanderShell TESTplayer; //testing only
+    public CommanderShell TESTenemy; //testing only
 
     //---------------------------------------------------------------------------------------
-    /*This portion of code is supposed to recieve information about commanders
+    /*This portion of code is supposed to externally recieve information about commanders
      * and in the process also record the total number of ships for easy access.
     */
     private List<CommanderInfo> participants = new List<CommanderInfo>();
@@ -31,21 +28,32 @@ public class CombatManager : MonoBehaviour
         set
         {
             participants = value;
-            foreach  (CommanderInfo _ship in value)
+            foreach  (CommanderInfo _commander in value)
             {
-                totalShips += _ship.CommanderFleet.Count;
+                totalShips += _commander.CommanderFleet.Count;
+
+                foreach (Ship _ship in _commander.CommanderFleet)
+                {
+                    RegisterShips(_ship);
+                }
             }
+
         }
+    }
+
+    public void SubmitCommander(CommanderInfo _commanderInfo)
+    {
+        Participants.Add(_commanderInfo);
     }
     //---------------------------------------------------------------------------------------
     /*
-     *This portion of code is supposed to recieve information about individual ships for
+     *This portion of code is supposed to internally recieve information about individual ships for
      *easy access. It should help facilitate tracking which ships die and/if they are 
      *revived.
      */
-    private static Dictionary<float, Ship> shipIDPairs = new Dictionary<float, Ship>();
-    public static void RegisterShips(Ship _ship)
-    {
+    private Dictionary<float, Ship> shipIDPairs = new Dictionary<float, Ship>();
+    private void RegisterShips(Ship _ship)
+    { 
         shipIDPairs.Add(_ship.ShipAttributes.Engines, _ship);
     }
     //----------------------------------------------------------------------------------------
@@ -55,15 +63,21 @@ public class CombatManager : MonoBehaviour
 
 
     // Start is called before the first frame update
+    //Start is also where the combat manager makes sure all references to variables are put together is required
     void Start()
     {
-        EquipmentProcess(enemyShip, playerShip, playerShip.weaponConfigs[0]);
+
     }
 
     //Main Combat Funtions Below----------------------------------------------------------------------------------------
 
+    //Process Turn
+    public void TurnUpdate()
+    {
+        EquipmentProcess(TESTenemy.commanderInfo.CommanderFleet[0], TESTplayer.commanderInfo.CommanderFleet[0], TESTplayer.commanderInfo.CommanderFleet[0].weaponConfigs[0]);
+    }
 
-    //must be tied to a UI object to function
+    //must be tied to a UI object to meet MVC requirements
     public void EquipmentProcess(IShip _target, IShip _source, IShipEquipment _equipment)
     {
         _equipment.Activate(_target, _source);
