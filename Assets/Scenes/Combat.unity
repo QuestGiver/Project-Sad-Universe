@@ -641,6 +641,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   commanderInfo: {fileID: 11400000, guid: c2c04d975b6a9db4898aa7dcd5a83e32, type: 2}
   combatManager: {fileID: 1111431435}
+  attributeProgressionCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.46344352
+      value: 0.41005224
+      inSlope: -4.473553
+      outSlope: -4.473553
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.1991343
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1.279182
+      value: 1.4684855
+      inSlope: -2.1984658
+      outSlope: -2.1984658
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.14117643
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!4 &107738722
 Transform:
   m_ObjectHideFlags: 0
@@ -3108,7 +3141,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -5, y: 0}
+  m_AnchoredPosition: {x: -4.999939, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1071653848
@@ -5826,6 +5859,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   commanderInfo: {fileID: 11400000, guid: eb77e58f6d66e404cabb18e9040c4b33, type: 2}
   combatManager: {fileID: 1111431435}
+  attributeProgressionCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!4 &1947771490
 Transform:
   m_ObjectHideFlags: 0

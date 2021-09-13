@@ -19,6 +19,17 @@ public class Ship : ScriptableObject, IShip
 
     //Fields==============================================================================================================================|
     [SerializeField]
+    private float activePowerMod;//needs property
+
+    [SerializeField]
+    private float activeShieldMod;//needs property
+    [SerializeField]
+    private float activeEquipmentMod;//needs property
+    [SerializeField]
+    private float activeEngineMod;//needs property
+
+
+    [SerializeField]
     private ShipStats shipStats;
     [SerializeField]
     private ShipAttributes shipAttributes;
@@ -49,7 +60,53 @@ public class Ship : ScriptableObject, IShip
     public float Multi_AI { get => multi_AI;}
     public float Multi_ArmorRating { get => multi_ArmorRating;}
 
+    public float ActivePowerMod
+    {
+        get => activePowerMod;
+        set
+        {
+            activePowerMod = Mathf.Clamp(value,0,activePowerMod);
+        }
+    }
+    public float ActiveShieldMod
+    {
+        get => activeShieldMod;
+        set
+        { 
+            activeShieldMod = Mathf.Clamp(value, 0f, 1);
+        }
+    }
+    public float ActiveEquipmentMod
+    {
+        get => activeEquipmentMod;
+        set
+        {
+            activeEquipmentMod = Mathf.Clamp(value, 0, 1);
+        }
+    }
+    public float ActiveEngineMod
+    {
+        get => activeEngineMod; 
+        set
+        {
+            activeEngineMod = Mathf.Clamp(value,0,1);
+        }
+    }
+
     //Methods============================================================================================================================|
+
+    ///returns the magnitude of the active system multipliers
+    private float activeModMagnitude()
+    {
+        return Mathf.Sqrt((ActiveShieldMod * ActiveShieldMod) + (ActiveEquipmentMod * ActiveEquipmentMod) * (ActiveEngineMod * ActiveEngineMod));
+    }
+
+    ///returns the unit value of the given active modifier 
+    public float activeModUnitComponent(float _activeMod)
+    {
+        return ActivePowerMod * (_activeMod / activeModMagnitude());
+    }
+
     //execute ship destruction behavior
     public void ShipDestroy()
     {
@@ -112,19 +169,24 @@ public class Ship : ScriptableObject, IShip
 
         shipStats.HP = shipStats.MaxHp;
         shipStats.Heat = shipStats.MaxHeat;
-        shipStats.Charge = shipStats.MaxCharge;
+        shipStats.Charge = shipStats.MaxCharge * activeModUnitComponent(ActiveEquipmentMod);
         shipStats.Dissipation = shipStats.MaxDissipation;
         shipStats.Luck = shipStats.MaxLuck;
-        shipStats.Speed = shipStats.MaxSpeed;
+        shipStats.Speed = shipStats.MaxSpeed * activeModUnitComponent(ActiveEngineMod);
         shipStats.Resistance = shipStats.MaxResistance;
-        shipStats.Shields = shipStats.MaxShield;
-        shipStats.PwrSupply  =  shipStats.MaxPwrSupply;
-        shipStats.Evasion = shipStats.MaxEvasion;
+        shipStats.Shields = shipStats.MaxShield * activeModUnitComponent(ActiveShieldMod);
+        shipStats.PwrSupply  =  shipStats.MaxPwrSupply ;
+        shipStats.Evasion = shipStats.MaxEvasion * activeModUnitComponent(ActiveEngineMod);
     }
 
     private void OnValidate()
     {
         AttributesToStats();
+    }
+
+    public Ship returnShip()
+    {
+        return this;
     }
 
     public Ship()//default creation

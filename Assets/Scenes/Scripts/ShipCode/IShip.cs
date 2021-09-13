@@ -4,10 +4,13 @@ using UnityEngine;
 
 public interface IShip
 {
+
+    Ship returnShip();
     void UpdatePosition();
     void CheckPowerDist();
     void ShipDestroy();
     void AttributesToStats();
+    float activeModUnitComponent(float _activeMod);
 
     //properties
     public ShipAttributes ShipAttributes { get; set; }
@@ -61,9 +64,9 @@ public struct ShipAttributes
         )
     {
         engines = _engines;//(evasion and speed)
-        heatManagement = _heatManagement;//(cool down times)
+        heatManagement = _heatManagement;//(heat management)
         structure = _structure;//(hit points)
-        affinity = _affinity;//(Boarding Defense and buff/debuff multiplier)
+        affinity = _affinity;//(Boarding Defense/how familiar the crew is with the ship and buff/debuff multiplier)
         aI = _aI;//(Luck and misc determinants)
         armorRating = _armorRating;//(Resistance to damage)
         size = _size;//(total space for upgrades/weapons and size class of ship/this stat and the shield generator rating and slot size determine max shield strength)

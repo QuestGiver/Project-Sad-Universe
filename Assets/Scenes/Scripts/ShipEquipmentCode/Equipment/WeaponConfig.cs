@@ -33,6 +33,7 @@ public class WeaponConfig : ScriptableObject, IShipEquipment
     }
     public float CoolDown { get => coolDown; set => coolDown = value; }
     public float ChargeUp { get => chargeUp; set => chargeUp = value; }
+    public float HeatGenerated { get => heatGenerated; set => heatGenerated = value; }
 
     public void Activate(IShip _target, IShip _source)
     {

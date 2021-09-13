@@ -16,7 +16,7 @@ public class RadarScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void UpdateOnTurn()
