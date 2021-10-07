@@ -18,6 +18,8 @@ public class Ship : ScriptableObject, IShip
     //etc. Implement when ready
 
     //Fields==============================================================================================================================|
+    public AnimationCurve attributeProgressionCurve;//test variable, remove or implament
+
     [SerializeField]
     private float activePowerMod;//needs property
 
@@ -65,7 +67,8 @@ public class Ship : ScriptableObject, IShip
         get => activePowerMod;
         set
         {
-            activePowerMod = Mathf.Clamp(value,0,activePowerMod);
+            activePowerMod = Mathf.Clamp(value,0,1);
+            Debug.Log(activePowerMod);
         }
     }
     public float ActiveShieldMod
@@ -73,7 +76,8 @@ public class Ship : ScriptableObject, IShip
         get => activeShieldMod;
         set
         { 
-            activeShieldMod = Mathf.Clamp(value, 0f, 1);
+            activeShieldMod = Mathf.Clamp(value, 0.1f, 1);
+            Debug.Log(activeShieldMod);
         }
     }
     public float ActiveEquipmentMod
@@ -81,7 +85,8 @@ public class Ship : ScriptableObject, IShip
         get => activeEquipmentMod;
         set
         {
-            activeEquipmentMod = Mathf.Clamp(value, 0, 1);
+            activeEquipmentMod = Mathf.Clamp(value, 0.1f, 1);
+            Debug.Log(activeEquipmentMod);
         }
     }
     public float ActiveEngineMod
@@ -89,7 +94,8 @@ public class Ship : ScriptableObject, IShip
         get => activeEngineMod; 
         set
         {
-            activeEngineMod = Mathf.Clamp(value,0,1);
+            activeEngineMod = Mathf.Clamp(value,0.1f,1);
+            Debug.Log(activeEngineMod);
         }
     }
 
@@ -177,6 +183,7 @@ public class Ship : ScriptableObject, IShip
         shipStats.Shields = shipStats.MaxShield * activeModUnitComponent(ActiveShieldMod);
         shipStats.PwrSupply  =  shipStats.MaxPwrSupply ;
         shipStats.Evasion = shipStats.MaxEvasion * activeModUnitComponent(ActiveEngineMod);
+
     }
 
     private void OnValidate()

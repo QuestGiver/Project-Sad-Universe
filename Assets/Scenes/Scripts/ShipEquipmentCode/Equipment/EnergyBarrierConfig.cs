@@ -28,6 +28,13 @@ public class EnergyBarrierConfig : ScriptableObject, IShipEquipment
         throw new System.NotImplementedException();
     }
 
+    public void HeatHandler(IShip _source)
+    {
+        ShipStats temp = _source.ShipStats;
+        temp.Heat += HeatGenerated * _source.activeModUnitComponent(_source.returnShip().ActiveEquipmentMod);
+        _source.ShipStats = temp;
+    }
+
     // Start is called before the first frame update
     void Start()
     {

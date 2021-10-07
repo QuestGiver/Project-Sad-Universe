@@ -33,4 +33,11 @@ public class ThrustersConfig : ScriptableObject, IShipEquipment
     public void Activate(IShip _target, IShip _source)
     {
     }
+
+    public void HeatHandler(IShip _source)
+    {
+        ShipStats temp = _source.ShipStats;
+        temp.Heat += HeatGenerated * _source.activeModUnitComponent(_source.returnShip().ActiveEquipmentMod);
+        _source.ShipStats = temp;
+    }
 }

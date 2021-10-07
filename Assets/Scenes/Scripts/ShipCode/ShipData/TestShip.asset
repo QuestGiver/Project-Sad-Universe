@@ -12,17 +12,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cbb980d9518aae469f549e24c5cf096, type: 3}
   m_Name: TestShip
   m_EditorClassIdentifier: 
+  weaponConfigs: []
+  attributeProgressionCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  activePowerMod: 1
+  activeShieldMod: 1
+  activeEquipmentMod: 1
+  activeEngineMod: 1
   shipStats:
     maxPwrSupply: 10
     pwrSupply: 10
     maxHp: 125
     hP: 125
     maxSpeed: 10
-    speed: 10
+    speed: 7.071068
     maxCharge: 100
-    charge: 100
+    charge: 70.71068
     maxEvasion: 5.625
-    evasion: 5.625
+    evasion: 3.9774756
     maxDissipation: 4.5
     dissipation: 4.5
     maxLuck: 10
@@ -32,7 +43,7 @@ MonoBehaviour:
     maxHeat: 49.5
     heat: 49.5
     maxShield: 133.33333
-    shields: 133.33333
+    shields: 94.2809
   shipAttributes:
     size: 10
     engines: 10
