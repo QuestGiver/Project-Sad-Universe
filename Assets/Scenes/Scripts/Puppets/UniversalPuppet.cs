@@ -18,7 +18,7 @@ public class UniversalPuppet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+       
     }
 
     // Update is called once per frame
@@ -37,7 +37,9 @@ public class UniversalPuppet : MonoBehaviour
     public void TickTurn()
     {
         //TEST CODE
-        radarScript.BlipArenaPosition += model.ShipStats.Speed * throttle.value;
+        radarScript.SetBlipArenaPosition(
+        //TEST CODE
+        radarScript.GetBlipArenaPosition() + model.ShipStats.Speed * throttle.value);//all of the sliders related to speed need to have values above zero for this to work,
         //TEST CODE
     }
 }
