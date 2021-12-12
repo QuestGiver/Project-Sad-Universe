@@ -25,15 +25,15 @@ public class PowerPlantConfig : ScriptableObject, IShipEquipment
     //properties=====================
 
 
-    public void Activate(IShip _target, IShip _source)
+    public void ActivateEquipment(IShip _target, IShip _source)
     {
         throw new System.NotImplementedException();//on/off? I guess no power means being harder to detect? resistance to certain debuffs?
     }
 
-    public void HeatHandler(IShip _source)
+    public void ProcessHeat(IShip _source)
     {
         ShipStats temp = _source.ShipStats;
-        temp.Heat += HeatGenerated * _source.activeModUnitComponent(_source.returnShip().ActiveEquipmentMod);
+        temp.Heat += HeatGenerated * _source.getActiveModifierUnitValue(_source.returnShip().ActiveEquipmentMod);
         _source.ShipStats = temp;
     }
 

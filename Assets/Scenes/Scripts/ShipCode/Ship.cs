@@ -108,7 +108,7 @@ public class Ship : ScriptableObject, IShip
     }
 
     ///returns the unit value of the given active modifier 
-    public float activeModUnitComponent(float _activeMod)
+    public float getActiveModifierUnitValue(float _activeMod)
     {
         return ActivePowerMod * (_activeMod / activeModMagnitude());
     }
@@ -175,14 +175,14 @@ public class Ship : ScriptableObject, IShip
 
         shipStats.HP = shipStats.MaxHp;
         shipStats.Heat = shipStats.MaxHeat;
-        shipStats.Charge = shipStats.MaxCharge * activeModUnitComponent(ActiveEquipmentMod);
+        shipStats.Charge = shipStats.MaxCharge * getActiveModifierUnitValue(ActiveEquipmentMod);
         shipStats.Dissipation = shipStats.MaxDissipation;
         shipStats.Luck = shipStats.MaxLuck;
-        shipStats.Speed = shipStats.MaxSpeed * activeModUnitComponent(ActiveEngineMod);
+        shipStats.Speed = shipStats.MaxSpeed * getActiveModifierUnitValue(ActiveEngineMod);
         shipStats.Resistance = shipStats.MaxResistance;
-        shipStats.Shields = shipStats.MaxShield * activeModUnitComponent(ActiveShieldMod);
+        shipStats.Shields = shipStats.MaxShield * getActiveModifierUnitValue(ActiveShieldMod);
         shipStats.PwrSupply  =  shipStats.MaxPwrSupply ;
-        shipStats.Evasion = shipStats.MaxEvasion * activeModUnitComponent(ActiveEngineMod);
+        shipStats.Evasion = shipStats.MaxEvasion * getActiveModifierUnitValue(ActiveEngineMod);
 
     }
 

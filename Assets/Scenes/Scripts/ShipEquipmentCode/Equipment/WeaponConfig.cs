@@ -35,20 +35,14 @@ public class WeaponConfig : ScriptableObject, IShipEquipment
     public float ChargeUp { get => chargeUp; set => chargeUp = value; }
     public float HeatGenerated { get => heatGenerated; set => heatGenerated = value; }
 
-    public void Activate(IShip _target, IShip _source)
+    public void ActivateEquipment(IShip _target, IShip _source)
     {
-        HeatHandler(_source);
-        ShipStats temp = _target.ShipStats;
-        Debug.Log(temp.HP);
-        temp.HP -= Mathf.FloorToInt(baseDamageModifer * _source.BaseDamage);
-        Debug.Log(temp.HP);
-        _target.ShipStats = temp;
+        ProcessHeat(_source);
+        _target.ShipStats.HP -= Mathf.FloorToInt(baseDamageModifer * _source.BaseDamage);
     }
 
-    public void HeatHandler(IShip _source)
+    public void ProcessHeat(IShip _source)
     {
-        ShipStats temp = _source.ShipStats;
-        temp.Heat += HeatGenerated * _source.activeModUnitComponent(_source.returnShip().ActiveEquipmentMod);
-        _source.ShipStats = temp;
+        _source.ShipStats.Heat += HeatGenerated * _source.getActiveModifierUnitValue(_source.returnShip().ActiveEquipmentMod);
     }
 }

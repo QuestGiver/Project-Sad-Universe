@@ -80,7 +80,7 @@ public class CombatManager : MonoBehaviour
     //must be tied to a UI object to meet MVC requirements
     public void EquipmentProcess(IShip _target, IShip _source, IShipEquipment _equipment)
     {
-        _equipment.Activate(_target, _source);
+        _equipment.ActivateEquipment(_target, _source);
     }
 
 
