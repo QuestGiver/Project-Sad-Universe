@@ -619,7 +619,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 107738722}
-  - component: {fileID: 107738721}
   m_Layer: 0
   m_Name: EnemyCommanderShell
   m_TagString: Untagged
@@ -627,20 +626,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &107738721
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 107738720}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0dd3220dc91c468499efa81b18199465, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  commanderInfo: {fileID: 11400000, guid: c2c04d975b6a9db4898aa7dcd5a83e32, type: 2}
-  combatManager: {fileID: 1111431435}
 --- !u!4 &107738722
 Transform:
   m_ObjectHideFlags: 0
@@ -1413,10 +1398,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 701ad9ae2f6859046be63f526c5af898, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Commander:
-  - {fileID: 1947771489}
-  Blip: []
   blipPrefab: {fileID: 4992227171901512516, guid: b0aeab399ad65b94e856abc1e1a9e7d3, type: 3}
+  Blips: []
   blipArenaPosition: 5
   ScreenWidth: 0
   ArenaBounds: 100
@@ -1932,7 +1915,6 @@ GameObject:
   - component: {fileID: 546114358}
   - component: {fileID: 546114360}
   - component: {fileID: 546114359}
-  - component: {fileID: 546114361}
   m_Layer: 5
   m_Name: Enemy Ship
   m_TagString: Untagged
@@ -1997,26 +1979,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 546114357}
   m_CullTransparentMesh: 0
---- !u!114 &546114361
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 546114357}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5bcd40610bd04b4a927e3cbf0b4d15e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isAI: 1
-  model: {fileID: 11400000, guid: 3c65c02d57946e24fb674bd9a34e32e9, type: 2}
-  power: {fileID: 0}
-  shields: {fileID: 0}
-  equipment: {fileID: 0}
-  engines: {fileID: 0}
-  throttle: {fileID: 0}
-  radarScript: {fileID: 0}
 --- !u!1 &573538264
 GameObject:
   m_ObjectHideFlags: 0
@@ -3644,7 +3606,6 @@ GameObject:
   - component: {fileID: 1071653849}
   - component: {fileID: 1071653850}
   - component: {fileID: 1071653851}
-  - component: {fileID: 1071653852}
   m_Layer: 0
   m_Name: PlayerShip
   m_TagString: Untagged
@@ -3709,26 +3670,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1071653852
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1071653848}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5bcd40610bd04b4a927e3cbf0b4d15e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isAI: 0
-  model: {fileID: 11400000, guid: 3c65c02d57946e24fb674bd9a34e32e9, type: 2}
-  power: {fileID: 1381311630}
-  shields: {fileID: 1115003833}
-  equipment: {fileID: 1686697321}
-  engines: {fileID: 2113325931}
-  throttle: {fileID: 1188787632}
-  radarScript: {fileID: 335825637}
 --- !u!1 &1111431434
 GameObject:
   m_ObjectHideFlags: 0
@@ -3738,7 +3679,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1111431436}
-  - component: {fileID: 1111431435}
   m_Layer: 0
   m_Name: CombatManager
   m_TagString: Untagged
@@ -3746,20 +3686,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1111431435
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1111431434}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31d833c0417c8244a89500bd004245a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TESTplayer: {fileID: 1947771489}
-  TESTenemy: {fileID: 107738721}
 --- !u!4 &1111431436
 Transform:
   m_ObjectHideFlags: 0
@@ -3899,9 +3825,9 @@ RectTransform:
   m_Father: {fileID: 803808892}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 85, y: -20}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1158765915
@@ -3948,7 +3874,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1111431435}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: CombatManager, Assembly-CSharp
         m_MethodName: TurnUpdate
         m_Mode: 1
@@ -4551,7 +4477,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1071653852}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UniversalPuppet, Assembly-CSharp
         m_MethodName: TickTurn
         m_Mode: 1
@@ -4972,7 +4898,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1111431435}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: CombatManager, Assembly-CSharp
         m_MethodName: ProcessTurn
         m_Mode: 1
@@ -5184,7 +5110,6 @@ GameObject:
   - component: {fileID: 1502292945}
   - component: {fileID: 1502292944}
   - component: {fileID: 1502292943}
-  - component: {fileID: 1502292946}
   m_Layer: 5
   m_Name: Equipment Type Select
   m_TagString: Untagged
@@ -5272,7 +5197,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1502292946}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MainCombatDropdown, Assembly-CSharp
         m_MethodName: ParseMenuSelection
         m_Mode: 1
@@ -5323,19 +5248,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1502292941}
   m_CullTransparentMesh: 0
---- !u!114 &1502292946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1502292941}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6378f2d5a710e4c488597cfdcdd42b9a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MainCombatDropMenu: {fileID: 1502292943}
 --- !u!1 &1508254156
 GameObject:
   m_ObjectHideFlags: 0
@@ -6564,7 +6476,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1947771490}
-  - component: {fileID: 1947771489}
   m_Layer: 0
   m_Name: PlayerCommanderShell
   m_TagString: Untagged
@@ -6572,20 +6483,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1947771489
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1947771488}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0dd3220dc91c468499efa81b18199465, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  commanderInfo: {fileID: 11400000, guid: eb77e58f6d66e404cabb18e9040c4b33, type: 2}
-  combatManager: {fileID: 1111431435}
 --- !u!4 &1947771490
 Transform:
   m_ObjectHideFlags: 0
