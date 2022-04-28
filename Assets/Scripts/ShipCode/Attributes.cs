@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class ShipAttributes
+[CreateAssetMenu(fileName = "New Ship Attributes", menuName = "ScriptableObjects/ShipAttributes", order = 1)]
+public class Attributes : ScriptableObject
 {
     [SerializeField]
     private float size,//(total space for upgrades/weapons and size class of ship/this stat and the shield generator rating and slot size determine max shield strength)
@@ -22,7 +23,7 @@ public class ShipAttributes
     public float ArmorRating { get => armorRating; set => armorRating = value; }
     public float Size { get => size; set => size = value; }
 
-    public ShipAttributes(
+    public Attributes(
         float _engines,
         float _heatManagement,
         float _structure,

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CombatPuppetStats
 {
+
     private float 
         pwrSupply,
         hP,
@@ -16,11 +17,6 @@ public class CombatPuppetStats
         heat,
         shields,
         radarRange;
-
-    CombatPuppetStats(Ship _ship)
-    {
-
-    }
 
     public float PwrSupply
     {
@@ -140,4 +136,10 @@ public class CombatPuppetStats
             radarRange = value;
         }
     }
+
+    CombatPuppetStats(UniversalData _ship)
+    {
+
+    }
+
 }

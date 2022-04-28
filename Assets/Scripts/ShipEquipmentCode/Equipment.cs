@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public abstract class ShipEquipment : ScriptableObject
+[CreateAssetMenu(fileName = "New Equipment Item", menuName = "ScriptableObjects/ShipEquipment", order = 1)]
+public abstract class Equipment : ScriptableObject
 {
     public abstract void ActivateEquipment(CombatPuppet _target, CombatPuppet _source);
     public abstract void ProcessHeat(CombatPuppet _source);

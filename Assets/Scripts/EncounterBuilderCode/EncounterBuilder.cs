@@ -5,15 +5,28 @@ using UnityEngine;
 
 public class EncounterBuilder
 {
-    public CombatManager combatManager;
 
-    public List<CombatPuppet> GenerateFleet()
+    public static EncounterData testData;
+
+    public static EncounterData BuildRandomEncounter()
     {
-        throw new System.Exception("Not Implamented");
+        return testData;
     }
 
-    public EncounterAI GenerateAI()
+    public List<ICombatObject> GenerateFleet(int _size)
     {
-        throw new System.Exception("Not Implamented");
+        List<ICombatObject> combatants = new List<ICombatObject>();
+
+        for (int i = 0; i < _size; i++)
+        {
+            combatants.Add(CombatPuppetFactory.GenerateShip());
+        }
+
+        return combatants;
+    }
+
+    public EncounterAI GenerateAI(int _fleetSize)
+    {
+        return new EncounterAI( GenerateFleet(1), EncounterAIState.NEUTRAL);
     }
 }

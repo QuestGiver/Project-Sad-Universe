@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface ICommanderInfo
 {
-    public void SubmitFleet(CombatManager _combatManager);
+    public ref List<ICombatObject> SubmitFleet();
 }

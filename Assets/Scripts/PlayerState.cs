@@ -4,5 +4,5 @@ using UnityEngine;
 
 public static class PlayerState
 {
-    public static List<Ship> fleet;
+    public static List<UniversalData> fleet;
 }

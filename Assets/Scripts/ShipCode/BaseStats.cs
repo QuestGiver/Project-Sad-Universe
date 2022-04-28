@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-[CreateAssetMenu(fileName = "New Base Ship Stats", menuName = "ScriptableObjects/ShipStats", order = 1)]
-public class BaseShipStats : ScriptableObject
+[CreateAssetMenu(fileName = "New Base Ship Stats", menuName = "ScriptableObjects/BaseShipStats", order = 1)]
+public class BaseStats : ScriptableObject
 {
     [SerializeField]
     public float
@@ -20,7 +20,7 @@ public class BaseShipStats : ScriptableObject
         maxShield,
         maxRadarRange;
 
-    public BaseShipStats(float _maxPwrSupply, float _maxHp, float _maxSpeed, float _maxCharge, float _maxEvasion, float _maxDissipation, float _maxLuck, float _maxResistance, float _maxHeat, float _maxShield, float _maxRadarRange)
+    public BaseStats(float _maxPwrSupply, float _maxHp, float _maxSpeed, float _maxCharge, float _maxEvasion, float _maxDissipation, float _maxLuck, float _maxResistance, float _maxHeat, float _maxShield, float _maxRadarRange)
     {
         maxPwrSupply = _maxPwrSupply;
         maxHp = _maxHp;
