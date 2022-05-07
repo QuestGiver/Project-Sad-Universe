@@ -6,7 +6,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Encounter Data", menuName = "ScriptableObjects/Encounter", order = 1)]
 public class EncounterData : ScriptableObject
 {
-    public List<EncounterAI> AIList = new List<EncounterAI>();
+    public List<ICommanderInfo> ParticipantList = new List<ICommanderInfo>();
     public float FieldSize = 1000;
-
 }

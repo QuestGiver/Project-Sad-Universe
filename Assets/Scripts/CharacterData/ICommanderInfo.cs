@@ -5,4 +5,6 @@ using UnityEngine;
 public interface ICommanderInfo
 {
     public ref List<ICombatObject> SubmitFleet();
+    public EncounterAIState PlayerRelationship { get; set; }
+
 }

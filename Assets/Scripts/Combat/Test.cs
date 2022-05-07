@@ -10,8 +10,8 @@ public class Test : MonoBehaviour
     {
         for (int i = 0; i < 10; i++)
         {
-            CombatPuppet puppet = ScriptableObject.CreateInstance<CombatPuppet>();
-            puppet.SetBaseAttributes();
+            DefaultCombatPuppet puppet = ScriptableObject.CreateInstance<DefaultCombatPuppet>();
+            puppet.GenerateBaseAttributes();
             combatPuppets.Add(puppet);
         }
 
@@ -22,7 +22,7 @@ public class Test : MonoBehaviour
             rawInitiativeData.Add(ship.ReportInitiative());
         }
 
-        rawInitiativeData = SortShips(rawInitiativeData);
+        rawInitiativeData = SortShipsHighestToLowest(rawInitiativeData);
 
         int index = 0;
         foreach  (float ship in rawInitiativeData  )
@@ -32,7 +32,7 @@ public class Test : MonoBehaviour
         }
     }
 
-    public List<float> SortShips(List<float> _combatObjectList)
+    public List<float> SortShipsHighestToLowest(List<float> _combatObjectList)
     {
         List<float> SortedList = new List<float>();
 

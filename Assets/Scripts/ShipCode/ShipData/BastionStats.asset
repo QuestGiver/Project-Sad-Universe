@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a836ee40dddf5074f8ab90205d4a75a4, type: 3}
-  m_Name: Envoy
+  m_Script: {fileID: 11500000, guid: e8658dc709d688544860b8d2595aed38, type: 3}
+  m_Name: BastionStats
   m_EditorClassIdentifier: 
   maxPwrSupply: 10
   maxHp: 10
@@ -22,4 +22,4 @@ MonoBehaviour:
   maxResistance: 10
   maxHeat: 10
   maxShield: 10
-  maxRadarRange: 10
+  maxRadarRange: 100

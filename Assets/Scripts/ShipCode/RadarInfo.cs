@@ -8,4 +8,5 @@ public class RadarInfo
     public float EnergyEmissions = 0;
     public float HyperScale = 0;
     public float Velocity = 0;
+    public float GraviticSignature = 0;
 }

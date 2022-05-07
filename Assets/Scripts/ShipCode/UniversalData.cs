@@ -4,16 +4,20 @@ using UnityEngine;
 
 [System.Serializable]
 [CreateAssetMenu(fileName = "New ShipData", menuName = "ScriptableObjects/ShipData", order = 1)]
-public class UniversalData : ScriptableObject
+public class UniversalData : ScriptableObject//Implemented data handling class
 {
-    protected string universalName = "none";
+    [SerializeField]
+    public string universalName = "none";
 
+
+    [SerializeField]
+    public BaseStats currentState;
     [SerializeField]
     protected BaseStats _baseStats;
     [SerializeField]
     protected Attributes _attributes;
     [SerializeField]
-    protected List<Equipment> equipment = new List<Equipment>();
+    private List<Equipment> equipment = new List<Equipment>();
     [SerializeField]
     protected CombatObjectTypes combatObjectType = CombatObjectTypes.AntiShip;
 
@@ -29,6 +33,16 @@ public class UniversalData : ScriptableObject
         }
     }
 
+    public BaseStats Stats
+    {
+        get
+        {
+            return _baseStats;
+        }
+
+        set { _baseStats = value; }
+    }
+
     public string UniversalName
     {
         get
@@ -42,5 +56,6 @@ public class UniversalData : ScriptableObject
         }
     }
 
+    public List<Equipment> Equipment { get => equipment; set => equipment = value; }
 }
 

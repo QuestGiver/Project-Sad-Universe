@@ -20,7 +20,17 @@ public class BaseStats : ScriptableObject
         maxShield,
         maxRadarRange;
 
-    public BaseStats(float _maxPwrSupply, float _maxHp, float _maxSpeed, float _maxCharge, float _maxEvasion, float _maxDissipation, float _maxLuck, float _maxResistance, float _maxHeat, float _maxShield, float _maxRadarRange)
+    public BaseStats(float _maxPwrSupply,
+                               float _maxHp,
+                               float _maxSpeed,
+                               float _maxCharge,
+                               float _maxEvasion,
+                               float _maxDissipation,
+                               float _maxLuck,
+                               float _maxResistance,
+                               float _maxHeat,
+                               float _maxShield, 
+                               float _maxRadarRange)
     {
         maxPwrSupply = _maxPwrSupply;
         maxHp = _maxHp;
