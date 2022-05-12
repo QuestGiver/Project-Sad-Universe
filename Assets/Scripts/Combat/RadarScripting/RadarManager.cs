@@ -29,15 +29,15 @@ public class RadarManager : MonoBehaviour
 
     void Start()
     {
-        //ScreenWidth = Screen.width;
-        //Vector3 temp = Blips[0].position;
-        //temp.x = ScreenWidth * 0.1f;
-        //Blips[0].position = temp;
+        ScreenWidth = Screen.width;
+        Vector3 temp = Blips[0].position;
+        temp.x = ScreenWidth * 0.1f;
+        Blips[0].position = temp;
     }
 
     void Update()
     {
-
+        SetBlipArenaPosition(blipArenaPosition);
     }
 
     void UpdateOnTurn(ICombatObject _ship)

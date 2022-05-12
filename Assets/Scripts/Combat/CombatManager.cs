@@ -7,10 +7,8 @@ using TMPro;
 
 public class CombatManager : MonoBehaviour
 {
-    public static TurnOrder turnOrder =  new TurnOrder();
     public static RadarManager radarManager;
     public static EncounterData encounterData;
-    public static CombatPuppetFactory PuppetFactory = new CombatPuppetFactory();
     public EncounterBuilder Encounter_Builder;   
     public Button EndTurn;
     public Button Weapon;
@@ -34,29 +32,21 @@ public class CombatManager : MonoBehaviour
             }
             ships.AddRange(commander.SubmitFleet());
         }
-
-        turnOrder.InitializeTurnOrder(ships);
-
     }
 
-    public void TurnUpdate()
+    void Update()
     {
-        NextShip();
-        if (turnOrder.CurrentTurnHolder.OwnerID.PlayerRelationship != EncounterAIState.PLAYER)
-        {
-            ProcessAICommands();
-        }
+        ProcessPlayerShipMovement();
     }
 
-    void NextShip()
+    void ProcessPlayerShipMovement()
     {
-        turnOrder.EndTurn();
-        turnOrder.StartTurn();
+
     }
 
     void ProcessAICommands()
     {
-        NextShip();
+
     }
 
     void Actions()

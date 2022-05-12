@@ -5,15 +5,15 @@ using UnityEngine;
 
 public class TurnOrder
 {
-    private Queue<ICombatObject> _turnOrder = new Queue<ICombatObject>();
-    public ICombatObject CurrentTurnHolder;
+    private Queue<ICommanderInfo> _turnOrder = new Queue<ICommanderInfo>();
+    public ICommanderInfo CurrentTurnHolder;
 
-    public void InitializeTurnOrder(List<ICombatObject> _combatObjectList)
+    public void InitializeTurnOrder(List<ICommanderInfo> _ParticipantList)
     {
-        SortShips(_combatObjectList);
-        foreach  (ICombatObject ship in _combatObjectList)
+        SortFleets(_ParticipantList);
+        foreach  (ICommanderInfo commander in _ParticipantList)
         {
-            _turnOrder.Enqueue(ship);
+            _turnOrder.Enqueue(commander);
         }
     }
 
@@ -27,33 +27,46 @@ public class TurnOrder
         _turnOrder.Enqueue(CurrentTurnHolder);
     }
 
-    public List<ICombatObject> SortShips(List<ICombatObject> _combatObjectList)
+
+    public List<ICommanderInfo> SortFleets(List<ICommanderInfo> _PartipantList)
     {
-        List<ICombatObject> SortedList = new List<ICombatObject>();
+        List<ICommanderInfo> SortedList = new List<ICommanderInfo>();
 
         float highest;
         int indexOfHighest;
 
-        for (int i = 0; i < _combatObjectList.Count - 1; i++)
+        for (int i = 0; i < _PartipantList.Count - 1; i++)
         {
             highest = 0;
             indexOfHighest = 0;
-            for (int j = 0; j < _combatObjectList.Count - 1; j++)
+            for (int j = 0; j < _PartipantList.Count - 1; j++)
             {
-                if (!SortedList.Contains(_combatObjectList[j]))
-                    if (_combatObjectList[j].ReportInitiative() > highest)
+                if (!SortedList.Contains(_PartipantList[j]))
+                    if (ReturnFleetInitiative(_PartipantList[j].SubmitFleet()) > highest)
                     {
-                        highest = _combatObjectList[j].ReportInitiative();
+                        highest = ReturnFleetInitiative(_PartipantList[j].SubmitFleet());
                         indexOfHighest = j;
                     }
             }
-            SortedList.Add(_combatObjectList[indexOfHighest]);
+            SortedList.Add(_PartipantList[indexOfHighest]);
         }
 
         return SortedList;
     }
 
-    public void QueueCombatObject(ICombatObject _combatObject)
+    ///returns the mean average initiative of a fleet
+    public float ReturnFleetInitiative(List<ICombatObject> _fleet)
+    {
+        float result = 0;
+        foreach (ICombatObject ship in _fleet)
+        {
+            result += ship.ReportInitiative();
+        }
+
+        return result/_fleet.Count;
+    }
+
+    public void QueueCombatParticipant(ICommanderInfo _combatObject)
     {
         _turnOrder.Enqueue(_combatObject);
     }
