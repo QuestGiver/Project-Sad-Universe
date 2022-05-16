@@ -4,10 +4,13 @@ using UnityEngine;
 
 public abstract class Equipment : ScriptableObject
 {
-    public abstract void ActivateEquipment(ICombatObject _source);
-    public abstract void ProcessHeat(ICombatObject _source);
+    public abstract void ActivateEquipment();
+    public abstract void ProcessHeat();
 
+    public string EquipmentName;
     public ParticleSystem particleSystem;
+    [HideInInspector]
+    public UniversalData Ship;
 
     [SerializeField]
     EquipmentType _equipmentType;
@@ -39,7 +42,7 @@ public abstract class Equipment : ScriptableObject
     public float PowerConsumtion { get => _PowerConsumtion;}
 
 
-    public static Equipment  NewEquipmentInstance( EquipmentType equipmentType, float modifier, float coolDown, float chargeUp, float heatGenerated, float maxOverclock, float size, float speed, float powerConsumtion)
+    public static Equipment  NewEquipmentInstance( EquipmentType equipmentType, float modifier, float coolDown, float chargeUp, float heatGenerated, float maxOverclock, float size, float speed, float powerConsumtion , string _name)
     {
         Equipment newEquipment = ScriptableObject.CreateInstance<Equipment>();
         newEquipment._equipmentType = equipmentType;
@@ -51,6 +54,7 @@ public abstract class Equipment : ScriptableObject
         newEquipment._size = size;
         newEquipment._Speed = speed; ;
         newEquipment._PowerConsumtion = powerConsumtion;
+        newEquipment.EquipmentName = _name;
         return newEquipment;
     }
 }

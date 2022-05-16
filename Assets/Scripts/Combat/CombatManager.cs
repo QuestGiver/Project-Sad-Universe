@@ -1,22 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 
 
+//the brain of the encounter which makes sure that combat flows normally
 public class CombatManager : MonoBehaviour
 {
-    public static RadarManager radarManager;
+    public RadarManager radarManager;
     public static EncounterData encounterData;
-    public EncounterBuilder Encounter_Builder;   
-    public Button EndTurn;
-    public Button Weapon;
+    public EncounterBuilder Encounter_Builder;
+    public static Event commonUpdates;
+    
 
     void Start()
     {
-        encounterData = Encounter_Builder.BuildRandomEncounter();
-        encounterData.ParticipantList.Add(PlayerState.CommanderInfoPassThrough());
         initializeCombat();
     }
 
@@ -26,22 +23,23 @@ public class CombatManager : MonoBehaviour
 
         foreach (ICommanderInfo commander in encounterData.ParticipantList)
         {
-            foreach  (ICombatObject ship in commander.SubmitFleet())
-            {
-                ship.OwnerID = commander;
-            }
             ships.AddRange(commander.SubmitFleet());
         }
     }
 
     void Update()
     {
-        ProcessPlayerShipMovement();
+        //CommandPoints += Time.deltaTime * PlayerShip.Attributes.Affinity;
+        //Mathf.Clamp(CommandPoints, 0, 100);
+        //CommandBar.value = CommandPoints;
+
+        ProcessPlayerShipMovement(); 
     }
 
     void ProcessPlayerShipMovement()
     {
-
+        //movement update delegate goes here
+        //test code -> radarManager.SetBlipArenaPosition(radarManager.blipArenaPosition + throttle.value * PlayerShip.Stats.maxSpeed);
     }
 
     void ProcessAICommands()
@@ -59,9 +57,9 @@ public class CombatManager : MonoBehaviour
 
     }
 
-    public void ProcessEquipmentAction(ICombatObject _source, Equipment _equipment)
+    public void ProcessEquipmentAction(UniversalData _source, Equipment _equipment)
     {
-        _equipment.ActivateEquipment(_source);
+        _equipment.ActivateEquipment();
     }
 
 

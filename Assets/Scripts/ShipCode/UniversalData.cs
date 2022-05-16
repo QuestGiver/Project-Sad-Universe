@@ -9,9 +9,6 @@ public class UniversalData : ScriptableObject//Implemented data handling class
     [SerializeField]
     public string universalName = "none";
 
-
-    [SerializeField]
-    public BaseStats currentState;
     [SerializeField]
     protected BaseStats _baseStats;
     [SerializeField]

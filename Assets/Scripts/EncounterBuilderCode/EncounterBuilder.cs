@@ -2,25 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
+//This class is intented to pull data from addressable assets or scriptable objects for plug and play encounter creation
 public class EncounterBuilder : MonoBehaviour
 {
-    public CombatPuppetFactory combatPuppetFactory;
 
     public EncounterData BuildRandomEncounter()
     {
         EncounterData Data = ScriptableObject.CreateInstance<EncounterData>();
-        Data.FieldSize = 1000;
-        Data.ParticipantList.Add(GenerateAI(1));
+        //logic pending
         return Data;
-    }
-
-    public EncounterParticipant GenerateAI(int _fleetSize)
-    {
-        EncounterParticipant encounterParticipant = ScriptableObject.CreateInstance<EncounterParticipant>();
-        encounterParticipant.Ships = GenerateFleet(_fleetSize);
-        encounterParticipant.PlayerRelationship = EncounterAIState.HOSTILE;
-        return encounterParticipant;
     }
 
     public List<ICombatObject> GenerateFleet(int _fleetSize)
@@ -30,7 +20,7 @@ public class EncounterBuilder : MonoBehaviour
 
         for (int i = 0; i < _fleetSize; i++)
         {
-            combatants.Add(combatPuppetFactory.GenerateShip());
+            //pull from scriptable object
         }
 
         return combatants;

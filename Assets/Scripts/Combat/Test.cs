@@ -11,17 +11,11 @@ public class Test : MonoBehaviour
         for (int i = 0; i < 10; i++)
         {
             DefaultCombatPuppet puppet = ScriptableObject.CreateInstance<DefaultCombatPuppet>();
-            puppet.GenerateBaseAttributes();
+            //puppet.GenerateBaseAttributes();
             combatPuppets.Add(puppet);
         }
 
         List<float> rawInitiativeData = new List<float>();
-
-        foreach  (ICombatObject ship in combatPuppets)
-        {
-            rawInitiativeData.Add(ship.ReportInitiative());
-        }
-
         rawInitiativeData = SortShipsHighestToLowest(rawInitiativeData);
 
         int index = 0;

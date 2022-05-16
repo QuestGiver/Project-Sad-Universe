@@ -2,28 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//A factory for creating anything for a combat encounter that does not have a scriptable object
 public class CombatPuppetFactory : MonoBehaviour
-{
-    public List<ScriptableWeapon> Weapons = new List<ScriptableWeapon>();
-    private void Awake()
-    {
-        
-    }
+{ 
 
-    public DefaultCombatPuppet GenerateShip()
+    private static void GenerateWeaponLoadout(DefaultCombatPuppet puppet)
     {
-        DefaultCombatPuppet puppet = ScriptableObject.CreateInstance<DefaultCombatPuppet>();
-        puppet.GenerateBaseAttributes();
-        puppet.GenerateBaseStats();
-        puppet.currentState = puppet.Stats;
-        puppet.universalName = "NPC Ship Made At: " + System.DateTime.Now.ToString();
-        GenerateWeaponLoadout(puppet);
-        return puppet;
-    }
-
-    private void GenerateWeaponLoadout(DefaultCombatPuppet puppet)
-    {
-        ScriptableWeapon weapon = Weapons[0];
+        ScriptableWeapon weapon = EquipmentPool.WeaponsPool[0];
 
         for (float i = 0; i < puppet.Attributes.Size; i += weapon.Size)
         {

@@ -18,4 +18,5 @@ MonoBehaviour:
   _attributes: {fileID: 11400000, guid: 4cbfde44b85cfbf4ea6cf4e500a2ec2c, type: 2}
   equipment:
   - {fileID: 11400000, guid: 08b0aecf56c67da498a783118d02f97d, type: 2}
+  - {fileID: 11400000, guid: 2873614fcca85b64fa2605190745f43e, type: 2}
   combatObjectType: 1

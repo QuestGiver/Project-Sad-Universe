@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RadarManager : MonoBehaviour
+public class RadarManager : MonoBehaviour//manages the 1d radar of the combat system
 {
     [SerializeField]
     private GameObject blipPrefab;
     public List<RectTransform> Blips;
     [SerializeField]
-    private float blipArenaPosition = 1;
+    public float blipArenaPosition = 1;
     public float ScreenWidth;
     public float ArenaBounds = 100;//default 100 = 10 lightyears, which means that attacks generally take less than a second to travel to the target at even a fraction of maximum hyperscale. Might be slightly randomized or effected by sensor ranges.
 

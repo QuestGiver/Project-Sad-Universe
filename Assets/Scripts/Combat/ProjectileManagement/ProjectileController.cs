@@ -2,18 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProjectileController : MonoBehaviour
+//Projectiles use this class to allow functionality to be shot down/healed/etc. Basically mini ships.
+public class ProjectileController
 {
-    public List<ICombatObject> Projectiles;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    public int Damage;
+    HitPoints hitPoints;
+    RadarInfo radarInfo;
+    public HitPoints HitPoints
+    { 
+        get => hitPoints;
+        set => hitPoints = value;
     }
-
-    // Update is called once per frame
-    void Update()
+    public RadarInfo RadarInfo
     {
-        
+        get => radarInfo;
+        set => radarInfo = value;
     }
 }

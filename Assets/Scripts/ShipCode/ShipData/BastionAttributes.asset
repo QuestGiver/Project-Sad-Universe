@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BastionAttributes
   m_EditorClassIdentifier: 
   size: 10
-  engines: 10
+  engines: 1
   heatManagement: 10
   structure: 10
   affinity: 10

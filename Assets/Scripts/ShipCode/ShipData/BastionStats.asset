@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxPwrSupply: 10
   maxHp: 10
-  maxSpeed: 10
+  maxSpeed: 1
   maxCharge: 10
   maxEvasion: 10
   maxDissipation: 10

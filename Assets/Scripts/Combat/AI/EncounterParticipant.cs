@@ -4,6 +4,7 @@ using UnityEngine;
 
 [System.Serializable]
 [CreateAssetMenu(fileName = "New EncounterAI", menuName = "ScriptableObjects/EncounterAI", order = 1)]
+//intended to be a plug and play scriptable object for easily creating AI's from a set of options
 public class EncounterParticipant : ScriptableObject, ICommanderInfo
 {
     [SerializeField]

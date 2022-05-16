@@ -4,7 +4,7 @@ using UnityEngine;
 
 [System.Serializable]
 [CreateAssetMenu(fileName = "New Ship Attributes", menuName = "ScriptableObjects/ShipAttributes", order = 1)]
-public class Attributes : ScriptableObject
+public class Attributes : ScriptableObject//The heart and soul of the ship which determines its role
 {
     [SerializeField]
     private float size,//(total space for upgrades/weapons and size class of ship/this stat and the shield generator rating and slot size determine max shield strength)

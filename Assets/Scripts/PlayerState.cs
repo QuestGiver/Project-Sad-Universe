@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//The current state of the player ready to be saved
 public static class PlayerState
 {
     public static List<UniversalData> fleet;
+    public static float CommandPoints;
     public static EncounterParticipant CommanderInfoPassThrough()
     {
         List<ICombatObject> ships = new List<ICombatObject>();

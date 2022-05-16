@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Intended to load the player data from saves files
 public class PlayerStateInitializer : MonoBehaviour
 {
     public List<UniversalData> savedPlayerFleet =  new List<UniversalData>();

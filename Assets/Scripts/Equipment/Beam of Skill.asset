@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bf354af9a227cae4583d0d0fa098cc90, type: 3}
-  m_Name: WisperOfTheWorm
+  m_Name: Beam of Skill
   m_EditorClassIdentifier: 
-  EquipmentName: Wisper Of The Worm
+  EquipmentName: Beam of Skill
   particleSystem: {fileID: 6394691133704446165, guid: 075b9316e4588d6479d810dc8a69f7f1, type: 3}
   Ship: {fileID: 0}
   _equipmentType: 1

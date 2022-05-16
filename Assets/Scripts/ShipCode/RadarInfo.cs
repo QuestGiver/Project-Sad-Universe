@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//The percived values of a ship on a radar, owned by an individual ship
 public class RadarInfo
 {
     public float ShipPosition = 0;
